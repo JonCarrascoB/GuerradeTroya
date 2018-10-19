@@ -80,9 +80,41 @@ namespace GuerraDeTroya
             this.strength = strength;
         }
 
+        public bool GetInjured()
+        {
+            return injured;
+        }
+        public void Setinjured(bool injured)
+        {
+            this.injured = injured;
+        }
+
+        public bool GetDead()
+        {
+            return dead;
+        }
+        public void SetDead(bool dead)
+        {
+            this.dead = dead;
+        }
+
         //********************* METODOS *****************************
         public bool Retire()
         {
+
+            Console.WriteLine("El guerrero " + GetName() + " cuya edad es " + GetAge() + " y su fuerza " + .GetStrength());
+            if (injured&&!dead)
+            {
+                Console.WriteLine("El guerrero esta herido");
+            }
+            else if (dead)
+            {
+                Console.WriteLine("El guerrero esta muerto");
+            }
+            else
+            {
+                Console.WriteLine("El guerrero no esta herido");
+            }
             Console.WriteLine("Los guerreros troyanos no pueden ¡¡¡NUNCA RETIRARSE!!!");
             return false;
         }
@@ -93,10 +125,8 @@ namespace GuerraDeTroya
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
+            
         }
 
         public bool CheckStrength(int strength)
@@ -105,10 +135,8 @@ namespace GuerraDeTroya
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
+            
         }
 
 

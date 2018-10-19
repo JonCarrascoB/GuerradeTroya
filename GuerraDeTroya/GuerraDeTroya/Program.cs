@@ -8,9 +8,22 @@ namespace GuerraDeTroya
 {
     class Program
     {
+        //static conexion ...
         static void Main(string[] args)
         {
+            /*
+             List<Griego> griegos = new List<Griego>();
+             cadena = "SELECT nombre, fuerza FROM Griegos WHERE edad > 40";
+             command = new SqlCommand(cadena, conexion);
+             SqlReader griegosBD = command.executeReader();
+             while(griegosBD.Read())
+             {
+                string nombre = griegosBD["nombre"].ToString();
+                int fuerza = griegosBD["fuerza"].ToInt32();
 
+                griegos.Add(new Griego(nombre, fuerza);
+             }
+             */
             Troyano troy1 = new Troyano();
             Troyano troy2 = new Troyano("Paris",18,10,false,false);
             Troyano troy3 = new Troyano("Hector",25,8,false,true);

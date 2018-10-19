@@ -10,12 +10,20 @@ namespace GuerraDeTroya
     {
         private int capacity;
         private int occupation;
-        
+        List<Griego> horseOccupants;
 
-        public TroyanHorse(int capacity, int occupation)
+        public TroyanHorse(int capacity)
         {
-            capacity = 50;
-            occupation++;
+            if (capacity <= horseOccupants.Count())
+            {
+                Console.WriteLine("No puede haber más ocupantes que la capcidad del caballo");
+            }
+            else
+            {
+            this.capacity = capacity;
+            occupation
+
+            }
             List<Griego> horseOccupants = new List<Griego>();
         }
 
@@ -26,37 +34,23 @@ namespace GuerraDeTroya
         {
             foreach (Griego x in greekWarriors)
             {
-                if (warriorName = Griego. 
+                if (x.GetName() == warriorName) 
                 {
-                    int pos = greekWarriors.IndexOf(warriorName);
-                    if (pos != -1)
-                    {
-                        Console.WriteLine(warriorName + " se ha encontrado en la posición: " + pos);
-                        return;
-                    }
-                    else
-                    {
-                        Console.WriteLine(warriorName + " no se ha encontrado");
-                        return;
-
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("El guerrero no es un guerrero griego. ¡¡¡CUIDADO un traidor troyano!!!");
-                    return;
+                    return greekWarriors.IndexOf(x);
                 }
             }
+            return -1;
             
         }
         
-        public int SeeWarriorPos(int pos, List<Griego> greekWarriors)
+        public int SeeWarriorPos(int pos)
         {
-            if (pos>=0)
+            pos = pos - 1;
+            try
             {
-                Console.WriteLine(greekWarriors.ElementAt(pos));
+                horseOccupants.ElementAt(pos).Retire();
             }
-            else
+            catch
             {
                 Console.WriteLine("No es una posición valida");
             }
@@ -64,9 +58,10 @@ namespace GuerraDeTroya
         }
         public void GoHorse(string greekWarrior)
         {
-            if (occupation<= capacity)
+            if (capacity >horseOccupants.Count())
             {
                 horseOccupants.Add(greekWarrior);
+
                 Console.WriteLine("El gerrero griego " + greekWarrior + " montado en el caballo");
             }
             else
@@ -77,7 +72,11 @@ namespace GuerraDeTroya
 
         public void SeeData()
         {
-            Console.WriteLine("La capacidad del caballo es "+capacity+" con una ocupación de "+occupation+" los guerreros " +Griego.gre);
+            Console.WriteLine("La capacidad del caballo es "+capacity+" con una ocupación de "+occupation+" los guerreros ");
+            foreach(Griego x in horseOccupants)
+            {
+                x.Retire();
+            }
         }
     }
 }
